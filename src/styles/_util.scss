@@ -1,0 +1,13 @@
+$break-s: 640px;
+
+@mixin default-pseudo {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  content: "";
+  z-index: -1; 
+}
+
+@function space($base) {
+  @return #{$base * 0.125}rem;
+}
