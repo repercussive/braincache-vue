@@ -7,18 +7,20 @@ import { defineComponent, Component } from 'vue'
 import appScreen, { AppScreen } from '@/logic/app/appScreen'
 import WelcomeScreen from '@/components/screens/WelcomeScreen.vue'
 import GameScreen from '@/components/screens/GameScreen.vue'
+import EndScreen from '@/components/screens/EndScreen.vue'
 
 const screenMap: Record<AppScreen, Component> = {
   'welcome': WelcomeScreen,
   'game': GameScreen,
-  'game-end': WelcomeScreen
+  'game-end': EndScreen
 }
 
 export default defineComponent({
   name: 'App',
   components: {
     WelcomeScreen,
-    GameScreen
+    GameScreen,
+    EndScreen
   },
   computed: {
     screenComponent: () => screenMap[appScreen.current]

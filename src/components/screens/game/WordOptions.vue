@@ -13,22 +13,24 @@
 <script lang="ts">
 import { ref, defineComponent } from 'vue'
 import game from '@/logic/app/game'
+import appScreen from '@/logic/app/appScreen'
 import sleep from '@/logic/util/sleep'
 import WordButton from '@/components/screens/game/WordButton.vue'
 import Flex from '@/components/modular/Flex.vue'
 
 let lastSelectedWord = ''
-let animation = ref<'enter' | 'exit'>('enter')
+let animation = ref<'enter' | 'exit'>()
 
 export default defineComponent({
   name: 'WordOptions',
   data() {
     return { animation }
   },
-  created: () => {
+  created() {
     if (!game.state.levelData.correctOption) {
       game.generateLevel()
     }
+    animation.value = 'enter'
   },
   methods: {
     submitAnswer: async (answer: string) => {
@@ -38,8 +40,12 @@ export default defineComponent({
       animation.value = 'exit'
       await sleep(400)
 
-      game.generateLevel()
-      animation.value = 'enter'
+      if (game.checkHasGameEnded()) {
+        appScreen.set('game-end')
+      } else {
+        game.generateLevel()
+        animation.value = 'enter'
+      }
     }
   },
   computed: {

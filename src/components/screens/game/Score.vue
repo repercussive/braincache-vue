@@ -18,8 +18,8 @@ import Spacer from '@/components/modular/Spacer.vue'
 const enterAnimation = 'enter forwards 400ms'
 const exitAnimation = 'exit forwards 400ms'
 
-let displayedScore = ref(0)
-let animation = ref(enterAnimation)
+let displayedScore = ref<number>()
+let animation = ref<string>()
 let isAnimating = false
 
 watchEffect(async () => {
@@ -37,6 +37,10 @@ watchEffect(async () => {
 
 export default defineComponent({
   name: 'Score',
+  created() {
+    displayedScore.value = 0
+    animation.value = enterAnimation
+  },
   data() {
     return { displayedScore, animation }
   },

@@ -1,4 +1,5 @@
 import { reactive, readonly } from 'vue'
+import highScoreHandler from '@/logic/app/highScoreHandler'
 import getRandomArrayItem from '@/logic/util/getRandomArrayItem'
 import shuffleArray from '@/logic/util/shuffleArray'
 import allWords from '@/assets/words'
@@ -54,7 +55,7 @@ const createGame = () => {
 
   const handleGameEnd = () => {
     gameState.status = 'ended'
-    // todo: save score
+    highScoreHandler.setMostRecentScore(gameState.score)
   }
 
   initializeWords()

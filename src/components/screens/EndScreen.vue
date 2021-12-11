@@ -1,44 +1,44 @@
 <template>
   <ViewportCentered>
-    <MainHeading />
+    <span style="font-size: 1.5rem;">👏</span>
     <Spacer :mb="8" />
-    <StyledContainer>How many words can you hold in your head?</StyledContainer>
-    <Spacer :mb="8" />
-    <LabelledScore label="Your best score:" :score="highScore" />
-    <Spacer :mb="8" />
-    <Rules />
+    <StyledContainer color="text-accent">That's a wrap!</StyledContainer>
     <Spacer :mb="12" />
-    <Button @click="startGame">Start</Button>
+    <LabelledScore label="Your score:" :score="score" />
+    <Spacer :mb="14" />
+    <Button @click="changeScreen('game')">Play again</Button>
+    <Spacer :mb="8" />
+    <Button @click="changeScreen('welcome')">Home</Button>
   </ViewportCentered>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import appScreen from '@/logic/app/appScreen'
+import appScreen, { AppScreen } from '@/logic/app/appScreen'
+import game from '@/logic/app/game'
 import highScoreHandler from '@/logic/app/highScoreHandler'
-import MainHeading from '@/components/screens/welcome/MainHeading.vue'
 import ViewportCentered from '@/components/modular/ViewportCentered.vue'
 import Spacer from '@/components/modular/Spacer.vue'
 import StyledContainer from '@/components/modular/StyledContainer.vue'
 import LabelledScore from '@/components/modular/LabelledScore.vue'
-import Rules from '@/components/screens/welcome/Rules.vue'
 import Button from '@/components/modular/Button.vue'
 
 export default defineComponent({
-  name: 'WelcomeScreen',
+  name: 'EndScreen',
   data() {
-    return { highScore: highScoreHandler.highScore }
+    return { score: highScoreHandler.mostRecentScore }
   },
   methods: {
-    startGame: () => appScreen.set('game')
+    changeScreen(screen: AppScreen) {
+      game.reset()
+      appScreen.set(screen)
+    }
   },
   components: {
     ViewportCentered,
     Spacer,
     StyledContainer,
-    MainHeading,
     LabelledScore,
-    Rules,
     Button
   }
 })
