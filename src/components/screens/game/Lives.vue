@@ -1,7 +1,7 @@
 <template>
   <Flex>
-    <div class="container" v-for="{ index, animation } in lives" :key="index">
-      <Icon :size="1.65" color="life" :style="{ position: 'absolute', animation: animation }">
+    <div class="container" v-for="{ index, animation } in livesData" :key="index">
+      <Icon :size="1.65" color="life" :style="{ position: 'absolute', animation }">
         <HeartIcon />
       </Icon>
       <Icon :size="1.65" color="life-used" style="position: relative; z-index: -1;">
@@ -26,7 +26,7 @@ export default defineComponent({
     HeartIcon
   },
   computed: {
-    lives() {
+    livesData() {
       return Array.from({ length: 3 }).map((_, index) => {
         const isActive = game.state.lives > index
         return {
