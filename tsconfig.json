@@ -16,7 +16,9 @@
       "jest"
     ],
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@/logic/*": ["src/logic/*"],
+      "@/assets/*": ["src/assets/*"]
     },
     "lib": [
       "esnext",
