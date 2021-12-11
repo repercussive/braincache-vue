@@ -23,6 +23,7 @@ import Rules from '@/components/screens/welcome/Rules.vue'
 import Button from '@/components/modular/Button.vue'
 
 export default defineComponent({
+  name: 'WelcomeScreen',
   components: {
     ViewportCentered,
     Spacer,

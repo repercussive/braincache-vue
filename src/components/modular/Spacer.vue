@@ -10,6 +10,7 @@ import { defineComponent, StyleValue } from 'vue'
 const convert = (value: number | string) => typeof value === 'string' ? value : `${value * 0.125}rem`
 
 export default defineComponent({
+  name: 'Spacer',
   data({ mt, mr, mb, ml }) {
     let style: StyleValue = {}
     if (mt) style.marginTop = convert(mt)
