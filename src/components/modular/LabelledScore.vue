@@ -12,7 +12,7 @@ import Flex from '@/components/modular/Flex.vue'
 import Spacer from '@/components/modular/Spacer.vue'
 
 export default defineComponent({
-  name: 'ScoreDisplay',
+  name: 'LabelledScore',
   props: {
     label: String,
     score: Number
