@@ -5,13 +5,17 @@ function getIncorrectAnswer({ options, correctOption }: { options: string[], cor
   return options.filter((option) => option !== correctOption)[0]
 }
 
-beforeEach(() => {
+afterEach(() => {
   game.reset()
 })
 
 describe('initial state', () => {
   test('game starts with 3 lives', () => {
     expect(game.state.lives).toEqual(3)
+  })
+
+  test('game starts with a score of 0', () => {
+    expect(game.state.score).toEqual(0)
   })
 })
 
