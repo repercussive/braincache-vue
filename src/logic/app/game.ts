@@ -10,7 +10,7 @@ type GameState = {
   status: GameStatus
 }
 type LevelData = { options: string[]; correctOption: string }
-type GameStatus = 'waiting' | 'correct-answer' | 'incorrect-answer' | 'ended'
+export type GameStatus = 'waiting' | 'correct-answer' | 'incorrect-answer' | 'ended'
 
 const initialState: GameState = {
   score: 0,
