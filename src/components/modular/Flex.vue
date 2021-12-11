@@ -11,21 +11,16 @@
 import { defineComponent, StyleValue } from 'vue'
 export default defineComponent({
   name: 'Flex',
-  data({ column, reverse, center, align, justify, style }) {
-    let direction = column ? 'column' : 'row'
-    if (reverse) direction += '-reverse'
+  computed: {
+    allStyles() {
+      let direction = this.column ? 'column' : 'row'
+      if (this.reverse) direction += '-reverse'
 
-    if (center) {
-      align = 'center'
-      justify = 'center'
-    }
-
-    return {
-      allStyles: {
-        ...style,
+      return {
+        ...this.style,
         display: 'flex',
-        justifyContent: justify,
-        alignItems: align,
+        justifyContent: this.center ? 'center' : this.justify,
+        alignItems: this.center ? 'center' : this.align,
         flexDirection: direction
       } as StyleValue
     }

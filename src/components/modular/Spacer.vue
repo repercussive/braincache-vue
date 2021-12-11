@@ -11,15 +11,14 @@ const convert = (value: number | string) => typeof value === 'string' ? value : 
 
 export default defineComponent({
   name: 'Spacer',
-  data({ mt, mr, mb, ml }) {
-    let style: StyleValue = {}
-    if (mt) style.marginTop = convert(mt)
-    if (mr) style.marginRight = convert(mr)
-    if (mb) style.marginBottom = convert(mb)
-    if (ml) style.marginLeft = convert(ml)
-
-    return {
-      style
+  computed: {
+    style() {
+      let value: StyleValue = {}
+      if (this.mt) value.marginTop = convert(this.mt)
+      if (this.mr) value.marginRight = convert(this.mr)
+      if (this.mb) value.marginBottom = convert(this.mb)
+      if (this.ml) value.marginLeft = convert(this.ml)
+      return value
     }
   },
   props: {

@@ -8,11 +8,11 @@
 import { defineComponent, StyleValue } from 'vue'
 export default defineComponent({
   name: 'StyledContainer',
-  data({ color, style }) {
-    return {
-      allStyles: {
-        ...style,
-        '--color': `var(--color-${color})`
+  computed: {
+    allStyles() {
+      return {
+        ...this.style,
+        '--color': `var(--color-${this.color})`
       } as StyleValue
     }
   },
