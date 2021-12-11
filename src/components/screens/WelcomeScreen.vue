@@ -1,15 +1,17 @@
 <template>
-  <ViewportCentered>
-    <MainHeading />
-    <Spacer :mb="8" />
-    <StyledContainer>How many words can you hold in your head?</StyledContainer>
-    <Spacer :mb="8" />
-    <LabelledScore label="Your best score:" :score="highScore" />
-    <Spacer :mb="8" />
-    <Rules />
-    <Spacer :mb="12" />
-    <Button @click="startGame">Start</Button>
-  </ViewportCentered>
+  <FadeIn>
+    <ViewportCentered>
+      <MainHeading />
+      <Spacer :mb="8" />
+      <StyledContainer>How many words can you hold in your head?</StyledContainer>
+      <Spacer :mb="8" />
+      <LabelledScore label="Your best score:" :score="highScore" />
+      <Spacer :mb="8" />
+      <Rules />
+      <Spacer :mb="12" />
+      <Button @click="startGame">Start</Button>
+    </ViewportCentered>
+  </FadeIn>
 </template>
 
 <script lang="ts">
@@ -18,6 +20,7 @@ import appScreen from '@/logic/app/appScreen'
 import highScoreHandler from '@/logic/app/highScoreHandler'
 import MainHeading from '@/components/screens/welcome/MainHeading.vue'
 import ViewportCentered from '@/components/modular/ViewportCentered.vue'
+import FadeIn from '@/components/modular/FadeIn.vue'
 import Spacer from '@/components/modular/Spacer.vue'
 import StyledContainer from '@/components/modular/StyledContainer.vue'
 import LabelledScore from '@/components/modular/LabelledScore.vue'
@@ -34,6 +37,7 @@ export default defineComponent({
   },
   components: {
     ViewportCentered,
+    FadeIn,
     Spacer,
     StyledContainer,
     MainHeading,
