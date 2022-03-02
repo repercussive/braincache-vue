@@ -9,6 +9,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import Flex from '@/components/modular/Flex.vue'
+
 export default defineComponent({
   name: 'ViewportCentered',
   components: {

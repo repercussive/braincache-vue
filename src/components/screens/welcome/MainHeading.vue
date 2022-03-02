@@ -10,6 +10,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import Spacer from '@/components/modular/Spacer.vue'
+
 export default defineComponent({
   components: {
     Spacer

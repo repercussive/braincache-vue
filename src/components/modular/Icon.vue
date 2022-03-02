@@ -14,6 +14,7 @@
 
 <script lang="ts">
 import { defineComponent, StyleValue } from 'vue'
+
 export default defineComponent({
   name: 'Icon',
   computed: {
