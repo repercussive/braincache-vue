@@ -8,7 +8,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, StyleValue } from 'vue'
+import { defineComponent, StyleValue, PropType } from 'vue'
+
+type AlignMode = 'flex-start' | 'stretch' | 'center' | 'flex-start' | 'flex-end' | 'baseline'
+type JustifyMode = 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly'
+
 export default defineComponent({
   name: 'Flex',
   computed: {
@@ -27,11 +31,11 @@ export default defineComponent({
   },
   props: {
     align: {
-      type: String,
+      type: String as PropType<AlignMode>,
       default: 'flex-start'
     },
     justify: {
-      type: String,
+      type: String as PropType<JustifyMode>,
       default: 'flex-start'
     },
     column: {

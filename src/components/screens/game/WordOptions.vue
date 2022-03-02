@@ -69,7 +69,7 @@ export default defineComponent({
   }
 })
 
-function getButtonVariant(word: string) {
+function getButtonVariant(word: string): 'empty' | 'correct' | 'missed' | 'incorrect' | undefined {
   if (!word) return 'empty'
 
   const isCorrectAnswer = () => game.state.levelData.correctOption === word

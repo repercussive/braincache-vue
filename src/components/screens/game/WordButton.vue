@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, PropType } from 'vue'
 import game from '@/logic/app/game'
 import Button from '@/components/modular/Button.vue'
 
@@ -15,8 +15,8 @@ export default defineComponent({
     Button
   },
   props: {
-    animation: String,
-    variant: String
+    animation: String as PropType<'enter' | 'exit'>,
+    variant: String as PropType<'correct' | 'missed' | 'incorrect' | 'empty'>
   },
   computed: {
     className() {
